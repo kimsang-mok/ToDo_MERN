@@ -1,0 +1,46 @@
+import React, { useState, useEffect } from 'react';
+import "./App.scss"
+
+const API_BASE = "http://localhost:3001";
+
+
+
+function App() {
+  const [todos, setTodos] = useState([]);
+  const [popupActive, setPopupActive] = useState(false);
+  const [newTodo, setNewTodo] = useState("");
+
+  useEffect(() => {
+    GetTodos();
+    console.log(todos)
+  }, [])
+
+  const GetTodos = () => {
+    fetch(API_BASE + "/todos")
+      .then(res => res.json())
+      .then(data => setTodos(data))
+      .catch(err => console.error("Error: ", err))
+  }
+
+  return (
+    <div className="App">
+      <h1>Welcome, Kimsang</h1>
+      <h5>Your Tasks</h5>
+      <div className="todos">
+        {todos.map(todo => (
+          <div className={todo.complete ? "todo is-complete" : "todo"} key={todo._id}>
+            <div className="checkbox"></div>
+            <div className="text">{todo.text}</div>
+            <div className="delete-todo">x</div>
+          </div>
+
+
+        ))}
+
+      </div>
+
+    </div>
+  );
+};
+
+export default App;

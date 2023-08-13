@@ -1,0 +1,65 @@
+@import "index.scss";
+
+.App {
+    padding: 32px;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+.todo {
+    position: relative;
+    background-color: $dark;
+    padding: 16px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    transition: 0.5s;
+    cursor: pointer;
+    margin-bottom: 16px;
+
+    &:hover {
+        opacity: .8;
+    }
+
+    .checkbox {
+        width: 20px;
+        height: 20px;
+        margin-right: 16px;
+        border-radius: 999px;
+        transition: 0.4s;
+        background-color: $dark-alt;
+    }
+
+    &.is-complete {
+        .checkbox {
+            background-color: $primary;
+            background-image: linear-gradient($primary, $secondary);
+        }
+
+        .text {
+            text-decoration: line-through;
+        }
+    }
+
+    .text {
+        font-size: 20px;
+    }
+
+    .delete-todo {
+        position: absolute;
+        right: 16px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 24px;
+        height: 24px;
+        color: $light-alt;
+
+        background-color: $primary;
+        border-radius: 999px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
