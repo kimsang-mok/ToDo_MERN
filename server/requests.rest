@@ -6,11 +6,11 @@ POST http://localhost:3001/todo/new
 Content-Type: application/json
 
 {
-    "text": "Order chicken"
+    "text": "Get the bread chicken"
 }
 
 ### 
 DELETE http://localhost:3001/todo/delete/64d8d1732eeb727f615ec79c
 
 ###
-PUT http://localhost:3001/todo/complete/64d8fd90d97a286309044271
+PUT http://localhost:3001/todo/complete/64d9a8a7aa2a680ffd19c9a5
